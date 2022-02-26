@@ -24,8 +24,11 @@ static uint8_t dice_counter = 1;
 /* function definitions */
 
 /// STUDENTS: To be programmed
+void dice_counter_increment(void) {
+	dice_counter = (dice_counter % 6)+1;
+}
 
-
-
-
+uint8_t dice_counter_read(void) {
+	return dice_counter;
+}
 /// END: To be programmed
