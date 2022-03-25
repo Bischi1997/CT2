@@ -58,9 +58,24 @@ void hal_spi_init(void)
     // add your SPI configs below (based on reference manual)
     
     /// STUDENTS: To be programmed
-
-
-
+		
+		// enable master configuration
+		SPI1->CR1 |= 0x01 << 2;
+		
+		// Based on the reference manual, first needs SSM  to be set and later on SSI.
+		// SSM
+		SPI1->CR1 |= 0x01 << 9;
+		// SSI
+		SPI1->CR1 |= 0x01 << 8;
+		// Limit the bandwith to max 200kHz
+		// BR[2:0] Baud rate control needs to be configured accordingly
+		// 111:fPCLK/256 -> 42000kHz/256 < 200kHz
+		SPI1->CR1 |= 0x07 << 3;
+		
+		// As mentioned in the "Hinweise zur Initialisierung der SPI Schnittstelle" second last point
+		// Only after setting up everything we can enable SPE.
+		// SPE
+		SPI1->CR1 |= 0x01 << 6;
 
     /// END: To be programmed
     
@@ -73,10 +88,28 @@ void hal_spi_init(void)
 uint8_t hal_spi_read_write(uint8_t send_byte)
 {
     /// STUDENTS: To be programmed
-
-
-
-
+		// 1. ss low. needs to be set high as we want to send data to the SPI->DR. For more information check out Abbildung 3.
+		set_ss_pin_low();
+		// 2. DR = data
+		SPI1->DR = send_byte;
+		// 3. while (TXE from SR == 0) {}
+		while((SPI1->SR & BIT_TXE) == 0){
+			wait_10_us();
+		}
+		// 4. while (RXNE from SR == 0) {}
+		while((SPI1->SR & BIT_RXNE) == 0){
+			wait_10_us();
+		}
+		// 5. while (BSY from SR != 0) {}
+		while(SPI1->SR & BIT_BSY){
+			wait_10_us();
+		}
+		// 6. wait 10 us (display specific SPI implementation)
+		wait_10_us();
+		// 7. ss high. needs to be set high as we want to get data from the SPI->DR.
+		set_ss_pin_high();
+		// 8. return DR
+		return SPI1->DR;
     /// END: To be programmed
 }
 
