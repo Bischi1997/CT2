@@ -7,21 +7,21 @@
 
   <Targets>
     <Target>
-      <TargetName>Target 1</TargetName>
+      <TargetName>SPI_Test</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>CT_Board_HS14_M4</Device>
+          <Device>CT_Board_HS14_M0</Device>
           <Vendor>STMicroelectronics</Vendor>
           <PackID>InES.CTBoard14_DFP.4.0.2</PackID>
           <PackURL>https://ennis.zhaw.ch/pack/</PackURL>
-          <Cpu>IROM(0x08000000,0x200000) IRAM(0x20000000,0x30000) IRAM2(0x10000000,0x10000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IROM(0x08000000,0x200000) IRAM(0x20000000,0x30000) IRAM2(0x10000000,0x10000) CPUTYPE("Cortex-M0") CLOCK(180000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_2048 -FS08000000 -FL0200000 -FP0($$Device:CT_Board_HS14_M4$Flash\STM32F4xx_2048.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_2048 -FS08000000 -FL0200000 -FP0($$Device:CT_Board_HS14_M0$Flash\STM32F4xx_2048.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
           <RegisterFile></RegisterFile>
           <MemoryEnv></MemoryEnv>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:CT_Board_HS14_M4$SVD\STM32F429x.svd</SFDFile>
+          <SFDFile>$$Device:CT_Board_HS14_M0$SVD\STM32F429x.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\build\</OutputDirectory>
-          <OutputName>Lab</OutputName>
+          <OutputName>spi_test</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -110,13 +110,13 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments> -REMAP -MPU</SimDllArguments>
-          <SimDlgDll>DCM.DLL</SimDlgDll>
-          <SimDlgDllArguments>-pCM4</SimDlgDllArguments>
+          <SimDllArguments>-MPU </SimDllArguments>
+          <SimDlgDll>DARMCM1.DLL</SimDlgDll>
+          <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments> -MPU</TargetDllArguments>
-          <TargetDlgDll>TCM.DLL</TargetDlgDll>
-          <TargetDlgDllArguments>-pCM4</TargetDlgDllArguments>
+          <TargetDllArguments>-MPU </TargetDllArguments>
+          <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
+          <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
         <DebugOption>
           <OPTHX>
@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -172,9 +172,9 @@
             <AdsLsun>1</AdsLsun>
             <AdsLven>1</AdsLven>
             <AdsLsxf>1</AdsLsxf>
-            <RvctClst>1</RvctClst>
+            <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
-            <AdsCpuType>"Cortex-M4"</AdsCpuType>
+            <AdsCpuType>"Cortex-M0"</AdsCpuType>
             <RvctDeviceName></RvctDeviceName>
             <mOS>0</mOS>
             <uocRom>0</uocRom>
@@ -183,9 +183,8 @@
             <hadIRAM>1</hadIRAM>
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
-            <RvdsVP>2</RvdsVP>
+            <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
-            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -322,16 +321,16 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>0</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>0</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>0</v6Lang>
-            <v6LangP>0</v6LangP>
-            <vShortEn>0</vShortEn>
-            <vShortWch>0</vShortWch>
+            <v6Lang>1</v6Lang>
+            <v6LangP>1</v6LangP>
+            <vShortEn>1</vShortEn>
+            <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
@@ -352,7 +351,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <ClangAsOpt>4</ClangAsOpt>
+            <uClangAs>0</uClangAs>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -370,7 +369,7 @@
             <TextAddressRange>0x08000000</TextAddressRange>
             <DataAddressRange>0x20000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile></ScatterFile>
+            <ScatterFile>.\build\spi_test.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc>--diag_suppress 6314</Misc>
@@ -381,12 +380,17 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>app</GroupName>
+          <GroupName>Source SPI_Test</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>test.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\app\main.c</FilePath>
+              <FilePath>.\app\test.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\hal_spi.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -405,100 +409,112 @@
       <filter>
         <targetInfos/>
       </filter>
-      <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.1">
+      <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.0">
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="Target 1" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
     </packages>
     <apis/>
     <components>
-      <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M4">
-        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.1"/>
+      <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="3.0.3" condition="SYSTEM_M0">
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="3.0.3"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </component>
       <component Cclass="HAL" Cgroup="FMC" Cvendor="InES" Cversion="3.0.1" condition="HAL">
-        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.1"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="3.0.3"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </component>
-      <component Cclass="HAL" Cgroup="GPIO" Cvendor="InES" Cversion="4.0.1" condition="HAL">
-        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.1"/>
+      <component Cclass="HAL" Cgroup="GPIO" Cvendor="InES" Cversion="3.0.1" condition="HAL">
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="3.0.3"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </component>
       <component Cclass="HAL" Cgroup="PWR" Cvendor="InES" Cversion="2.2.0" condition="HAL">
         <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="2.2.0"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </component>
-      <component Cclass="HAL" Cgroup="RCC" Cvendor="InES" Cversion="4.0.1" condition="HAL">
-        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.1"/>
+      <component Cclass="HAL" Cgroup="RCC" Cvendor="InES" Cversion="3.0.1" condition="HAL">
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="3.0.3"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </component>
     </components>
     <files>
-      <file attr="config" category="source" name="Device\Source\datainit_ctboard.s">
-        <instance index="0">RTE\Device\CT_Board_HS14_M4\datainit_ctboard.s</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M4"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+      <file attr="config" category="source" name="Device\Source\datainit_ctboard.s" version="4.0.1">
+        <instance index="0">RTE\Device\CT_Board_HS14_M0\datainit_ctboard.s</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M0"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\Source\startup_ctboard.s">
-        <instance index="0">RTE\Device\CT_Board_HS14_M4\startup_ctboard.s</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M4"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+      <file attr="config" category="source" name="Device\Source\startup_ctboard.s" version="4.0.1">
+        <instance index="0">RTE\Device\CT_Board_HS14_M0\startup_ctboard.s</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M0"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="Device\Source\system_ctboard.c">
-        <instance index="0">RTE\Device\CT_Board_HS14_M4\system_ctboard.c</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M4"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+      <file attr="config" category="source" name="Device\Source\system_ctboard.c" version="4.0.1">
+        <instance index="0">RTE\Device\CT_Board_HS14_M0\system_ctboard.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="InES" Cversion="4.0.1" condition="SYSTEM_M0"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="HAL\Source\hal_fmc.c">
-        <instance index="0">RTE\HAL\CT_Board_HS14_M4\hal_fmc.c</instance>
+      <file attr="config" category="source" name="HAL\Source\hal_ct_dipsw.c">
+        <instance index="0" removed="1">RTE\HAL\CT_Board_HS14_M0\hal_ct_dipsw.c</instance>
+        <component Cclass="HAL" Cgroup="CT Board" Csub="DIPSW" Cvendor="InES" Cversion="2.2.0" condition="HAL"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="2.2.0"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="HAL\Source\hal_ct_led.c">
+        <instance index="0" removed="1">RTE\HAL\CT_Board_HS14_M0\hal_ct_led.c</instance>
+        <component Cclass="HAL" Cgroup="CT Board" Csub="LED" Cvendor="InES" Cversion="2.2.0" condition="HAL"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="2.2.0"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="HAL\Source\hal_fmc.c" version="3.0.1">
+        <instance index="0">RTE\HAL\CT_Board_HS14_M0\hal_fmc.c</instance>
         <component Cclass="HAL" Cgroup="FMC" Cvendor="InES" Cversion="3.0.1" condition="HAL"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="HAL\Source\hal_gpio.c">
-        <instance index="0">RTE\HAL\CT_Board_HS14_M4\hal_gpio.c</instance>
+      <file attr="config" category="source" name="HAL\Source\hal_gpio.c" version="4.0.1">
+        <instance index="0">RTE\HAL\CT_Board_HS14_M0\hal_gpio.c</instance>
         <component Cclass="HAL" Cgroup="GPIO" Cvendor="InES" Cversion="4.0.1" condition="HAL"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="HAL\Source\hal_pwr.c">
-        <instance index="0">RTE\HAL\CT_Board_HS14_M4\hal_pwr.c</instance>
+      <file attr="config" category="source" name="HAL\Source\hal_pwr.c" version="2.2.0">
+        <instance index="0">RTE\HAL\CT_Board_HS14_M0\hal_pwr.c</instance>
         <component Cclass="HAL" Cgroup="PWR" Cvendor="InES" Cversion="2.2.0" condition="HAL"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="HAL\Source\hal_rcc.c">
-        <instance index="0">RTE\HAL\CT_Board_HS14_M4\hal_rcc.c</instance>
+      <file attr="config" category="source" name="HAL\Source\hal_rcc.c" version="4.0.1">
+        <instance index="0">RTE\HAL\CT_Board_HS14_M0\hal_rcc.c</instance>
         <component Cclass="HAL" Cgroup="RCC" Cvendor="InES" Cversion="4.0.1" condition="HAL"/>
-        <package name="CTBoard14_DFP" schemaVersion="1.1" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
+        <package name="CTBoard14_DFP" schemaVersion="1.1" supportContact="https://ennis.zhaw.ch/" url="https://ennis.zhaw.ch/pack/" vendor="InES" version="4.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1"/>
+          <targetInfo name="SPI_Test"/>
         </targetInfos>
       </file>
     </files>

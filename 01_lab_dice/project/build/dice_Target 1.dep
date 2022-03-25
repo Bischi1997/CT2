@@ -1,6 +1,6 @@
 Dependencies for Project 'dice', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\app\dice_counter.c)(0x6219EEF8)(-c --cpu Cortex-M0 -D__EVAL -g -O0 --apcs=interwork -I.\RTE\_Target_1-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\build\dice_counter.o --omf_browse .\build\dice_counter.crf --depend .\build\dice_counter.d)
+F (.\app\dice_counter.c)(0x62232429)(-c --cpu Cortex-M0 -D__EVAL -g -O0 --apcs=interwork -I.\RTE\_Target_1-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\build\dice_counter.o --omf_browse .\build\dice_counter.crf --depend .\build\dice_counter.d)
 I (app\dice_counter.h)(0x62063750)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
 F (.\app\main.c)(0x62063750)(-c --cpu Cortex-M0 -D__EVAL -g -O0 --apcs=interwork -I.\RTE\_Target_1-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\build\main.o --omf_browse .\build\main.crf --depend .\build\main.d)
@@ -13,7 +13,7 @@ I (app\lcd.h)(0x62063750)
 F (.\app\statistics.c)(0x621A0D77)(-c --cpu Cortex-M0 -D__EVAL -g -O0 --apcs=interwork -I.\RTE\_Target_1-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\build\statistics.o --omf_browse .\build\statistics.crf --depend .\build\statistics.d)
 I (app\statistics.h)(0x62063750)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
-F (.\app\lcd.c)(0x621A0DC4)(-c --cpu Cortex-M0 -D__EVAL -g -O0 --apcs=interwork -I.\RTE\_Target_1-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\build\lcd.o --omf_browse .\build\lcd.crf --depend .\build\lcd.d)
+F (.\app\lcd.c)(0x621A0E19)(-c --cpu Cortex-M0 -D__EVAL -g -O0 --apcs=interwork -I.\RTE\_Target_1-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\m0-IC:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include-D__UVISION_VERSION="536" -D_RTE_ -D_RTE_-o .\build\lcd.o --omf_browse .\build\lcd.crf --depend .\build\lcd.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (app\lcd.h)(0x62063750)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602577DE)
