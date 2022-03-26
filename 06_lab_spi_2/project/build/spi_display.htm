@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\build\spi_display.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\spi_display.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Mar 26 10:24:43 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Mar 26 11:39:57 2022
 <BR><P>
-<H3>Maximum Stack Usage =        312 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        656 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; define_touch_button
+main &rArr; define_touch_button &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 <P>
 <H3>
 Mutually Recursive functions
@@ -135,11 +135,11 @@ Function Pointers
 <H3>
 Global Symbols
 </H3>
-<P><STRONG><a name="[93]"></a>__aeabi_memcpy4</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, rt_memcpy.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
+<P><STRONG><a name="[95]"></a>__aeabi_memcpy4</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, rt_memcpy.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
 </UL>
 
-<P><STRONG><a name="[b2]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy.o(.emb_text), UNUSED)
+<P><STRONG><a name="[b4]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy.o(.emb_text), UNUSED)
 
 <P><STRONG><a name="[6a]"></a>init_display_interface</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, lcd_io.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = init_display_interface &rArr; hal_spi_init &rArr; hal_mocked_spi_init
@@ -147,112 +147,124 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_init
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_sbuf_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
+<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
 </UL>
 
-<P><STRONG><a name="[b3]"></a>read_display_buffer</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, lcd_io.o(.text), UNUSED)
-
-<P><STRONG><a name="[6e]"></a>write_cmd_to_display</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, lcd_io.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;define_touch_button
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_enable
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_panel_color
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_color
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_zoom_factor
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_cursor_on_off
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fill_area
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_color
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_text_on_display
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_font
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_terminal
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_color
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_zoom_factor
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_display
+<P><STRONG><a name="[6f]"></a>read_display_buffer</STRONG> (Thumb, 164 bytes, Stack size 40 bytes, lcd_io.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = read_display_buffer &rArr; send_read_display_buffer_request &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-
-<P><STRONG><a name="[6d]"></a>clear_display</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = clear_display
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_read_write
+<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_sbuf_get_state
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_read_display_buffer_request
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
 </UL>
 
-<P><STRONG><a name="[6f]"></a>set_font_zoom_factor</STRONG> (Thumb, 26 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_font_zoom_factor
+<P><STRONG><a name="[71]"></a>write_cmd_to_display</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, lcd_io.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_read_write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;define_touch_button
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_enable
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_panel_color
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_color
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_zoom_factor
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_cursor_on_off
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fill_area
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_color
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_text_on_display
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_font
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_terminal
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_color
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_zoom_factor
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_display
+</UL>
+
+<P><STRONG><a name="[72]"></a>clear_display</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = clear_display &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
 </UL>
 
-<P><STRONG><a name="[70]"></a>set_display_color</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_display_color
+<P><STRONG><a name="[73]"></a>set_font_zoom_factor</STRONG> (Thumb, 26 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_font_zoom_factor &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
 </UL>
 
-<P><STRONG><a name="[71]"></a>init_terminal</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = init_terminal
+<P><STRONG><a name="[74]"></a>set_display_color</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_display_color &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
-<BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
 </UL>
 
-<P><STRONG><a name="[72]"></a>init_display</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = init_display &rArr; set_display_color
+<P><STRONG><a name="[75]"></a>init_terminal</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = init_terminal &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_terminal
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_color
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_zoom_factor
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+</UL>
+<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
+</UL>
+
+<P><STRONG><a name="[76]"></a>init_display</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = init_display &rArr; set_display_color &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_terminal
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_color
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_zoom_factor
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_display
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display_interface
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[73]"></a>set_display_font</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_display_font
+<P><STRONG><a name="[77]"></a>set_display_font</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_display_font &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
-</UL>
-<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[74]"></a>print_text_on_display</STRONG> (Thumb, 96 bytes, Stack size 280 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = print_text_on_display
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[75]"></a>set_font_color</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_font_color
+<P><STRONG><a name="[78]"></a>print_text_on_display</STRONG> (Thumb, 96 bytes, Stack size 280 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = print_text_on_display &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
-</UL>
-<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[76]"></a>fill_area</STRONG> (Thumb, 96 bytes, Stack size 40 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = fill_area
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[77]"></a>set_cursor_on_off</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_cursor_on_off
+<P><STRONG><a name="[79]"></a>set_font_color</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_font_color &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+</UL>
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[7a]"></a>fill_area</STRONG> (Thumb, 96 bytes, Stack size 40 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = fill_area &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+</UL>
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[7b]"></a>set_cursor_on_off</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, cmd_lcd.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_cursor_on_off &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -260,125 +272,140 @@ Global Symbols
 <P><STRONG><a name="[6b]"></a>hal_spi_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_spi.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hal_spi_init &rArr; hal_mocked_spi_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_init
+<BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display_interface
 </UL>
 
-<P><STRONG><a name="[79]"></a>hal_spi_read_write</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, hal_spi.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[6e]"></a>hal_spi_read_write</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, hal_spi.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_display_buffer
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_read_display_buffer_request
 </UL>
 
-<P><STRONG><a name="[7b]"></a>set_touch_font</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, cmd_touch.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_touch_font
+<P><STRONG><a name="[7e]"></a>set_touch_font</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, cmd_touch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_touch_font &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7c]"></a>set_touch_font_zoom_factor</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, cmd_touch.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_touch_font_zoom_factor
+<P><STRONG><a name="[7f]"></a>set_touch_font_zoom_factor</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, cmd_touch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_touch_font_zoom_factor &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
-</UL>
-<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[7d]"></a>set_touch_font_color</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, cmd_touch.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_touch_font_color
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[7e]"></a>set_touch_panel_color</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, cmd_touch.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = set_touch_panel_color
+<P><STRONG><a name="[80]"></a>set_touch_font_color</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, cmd_touch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_touch_font_color &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
-</UL>
-<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[7f]"></a>set_touch_enable</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, cmd_touch.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = set_touch_enable
-</UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[80]"></a>define_touch_button</STRONG> (Thumb, 148 bytes, Stack size 296 bytes, cmd_touch.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = define_touch_button
+<P><STRONG><a name="[81]"></a>set_touch_panel_color</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, cmd_touch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = set_touch_panel_color &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[78]"></a>hal_mocked_spi_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_mocked.o(.text))
+<P><STRONG><a name="[82]"></a>set_touch_enable</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, cmd_touch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = set_touch_enable &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+</UL>
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[83]"></a>define_touch_button</STRONG> (Thumb, 148 bytes, Stack size 296 bytes, cmd_touch.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 384<LI>Call Chain = define_touch_button &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_cmd_to_display
+</UL>
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[7c]"></a>hal_mocked_spi_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_mocked.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = hal_mocked_spi_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;idle
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;idle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_init
 </UL>
 
-<P><STRONG><a name="[7a]"></a>hal_mocked_spi_read_write</STRONG> (Thumb, 280 bytes, Stack size 16 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_clear
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_append
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;next
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_len
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resp
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_at
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;idle
+<P><STRONG><a name="[7d]"></a>hal_mocked_spi_read_write</STRONG> (Thumb, 280 bytes, Stack size 16 bytes, hal_mocked.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_read_write
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_clear
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_append
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;next
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_len
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;resp
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_at
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;idle
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_read_write
 </UL>
 
-<P><STRONG><a name="[8f]"></a>hal_mocked_sbuf_init</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<P><STRONG><a name="[92]"></a>hal_mocked_sbuf_init</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, hal_mocked.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_sbuf_init
 </UL>
 
-<P><STRONG><a name="[8d]"></a>hal_mocked_sbuf_get_state</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_new_button_event
+<P><STRONG><a name="[90]"></a>hal_mocked_sbuf_get_state</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_mocked.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = hal_mocked_sbuf_get_state
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_sbuf_get_state
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_new_button_event
+</UL>
+<BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_sbuf_get_state
 </UL>
 
 <P><STRONG><a name="[6c]"></a>hal_sbuf_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_sbuf.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = hal_sbuf_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_sbuf_init
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_sbuf_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display_interface
 </UL>
 
-<P><STRONG><a name="[90]"></a>hal_sbuf_get_state</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_sbuf.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_sbuf_get_state
+<P><STRONG><a name="[70]"></a>hal_sbuf_get_state</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, hal_sbuf.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hal_sbuf_get_state &rArr; hal_mocked_sbuf_get_state
+</UL>
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_sbuf_get_state
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_display_buffer
 </UL>
 
-<P><STRONG><a name="[66]"></a>main</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = main &rArr; define_touch_button
+<P><STRONG><a name="[66]"></a>main</STRONG> (Thumb, 176 bytes, Stack size 272 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 656<LI>Call Chain = main &rArr; define_touch_button &rArr; write_cmd_to_display &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
 </UL>
-<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;define_touch_button
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_enable
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_panel_color
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_color
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_zoom_factor
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_cursor_on_off
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fill_area
-<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_color
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_text_on_display
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_font
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
-<LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_color
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_zoom_factor
-<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_display
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;define_touch_button
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_enable
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_panel_color
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_color
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font_zoom_factor
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_touch_font
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_cursor_on_off
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fill_area
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_color
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_text_on_display
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_font
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_display
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_display_color
+<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_font_zoom_factor
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_display
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_display_buffer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> datainit_ctboard.o(.text)
 </UL>
@@ -727,13 +754,13 @@ Global Symbols
 <P><STRONG><a name="[b]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_ctboard.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_ctboard.o(RESET)
 </UL>
-<P><STRONG><a name="[9b]"></a>system_enter_run</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, system_ctboard.o(.text))
+<P><STRONG><a name="[9d]"></a>system_enter_run</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, system_ctboard.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = system_enter_run &rArr; init_FMC_SRAM &rArr; hal_gpio_init_alternate &rArr; hal_gpio_init_output &rArr; create_pattern_mask &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FPU
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FPU
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_LCD
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__system
 </UL>
@@ -741,289 +768,309 @@ Global Symbols
 <P><STRONG><a name="[67]"></a>__system</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_ctboard.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = __system &rArr; system_enter_run &rArr; init_FMC_SRAM &rArr; hal_gpio_init_alternate &rArr; hal_gpio_init_output &rArr; create_pattern_mask &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_ctboard.o(.text)
 </UL>
-<P><STRONG><a name="[b4]"></a>system_enter_sleep</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text), UNUSED)
+<P><STRONG><a name="[b5]"></a>system_enter_sleep</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text), UNUSED)
 
-<P><STRONG><a name="[b5]"></a>system_enter_stop</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text), UNUSED)
+<P><STRONG><a name="[b6]"></a>system_enter_stop</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text), UNUSED)
 
-<P><STRONG><a name="[b6]"></a>system_enter_standby</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text), UNUSED)
+<P><STRONG><a name="[b7]"></a>system_enter_standby</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text), UNUSED)
 
-<P><STRONG><a name="[b7]"></a>hal_fmc_reset</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, hal_fmc.o(.text), UNUSED)
+<P><STRONG><a name="[b8]"></a>hal_fmc_reset</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, hal_fmc.o(.text), UNUSED)
 
-<P><STRONG><a name="[94]"></a>hal_fmc_init_sram</STRONG> (Thumb, 412 bytes, Stack size 24 bytes, hal_fmc.o(.text))
+<P><STRONG><a name="[96]"></a>hal_fmc_init_sram</STRONG> (Thumb, 412 bytes, Stack size 24 bytes, hal_fmc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = hal_fmc_init_sram
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
 </UL>
 
-<P><STRONG><a name="[b8]"></a>hal_gpio_reset</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[b9]"></a>hal_gpio_reset</STRONG> (Thumb, 66 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[a0]"></a>hal_gpio_init_input</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
+<P><STRONG><a name="[a2]"></a>hal_gpio_init_input</STRONG> (Thumb, 90 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_analog
-</UL>
-
-<P><STRONG><a name="[a2]"></a>hal_gpio_init_analog</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_input
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_analog
 </UL>
 
-<P><STRONG><a name="[a3]"></a>hal_gpio_init_output</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, hal_gpio.o(.text))
+<P><STRONG><a name="[a4]"></a>hal_gpio_init_analog</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_input
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
+</UL>
+
+<P><STRONG><a name="[a5]"></a>hal_gpio_init_output</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, hal_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = hal_gpio_init_output &rArr; create_pattern_mask &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_alternate
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_alternate
 </UL>
 
-<P><STRONG><a name="[92]"></a>hal_gpio_init_alternate</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, hal_gpio.o(.text))
+<P><STRONG><a name="[94]"></a>hal_gpio_init_alternate</STRONG> (Thumb, 130 bytes, Stack size 32 bytes, hal_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = hal_gpio_init_alternate &rArr; hal_gpio_init_output &rArr; create_pattern_mask &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_output
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
+<BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_output
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
-</UL>
-
-<P><STRONG><a name="[b9]"></a>hal_gpio_input_read</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
-
-<P><STRONG><a name="[a8]"></a>hal_gpio_output_read</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_toggle
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_FMC_SRAM
 </UL>
 
-<P><STRONG><a name="[a4]"></a>hal_gpio_output_write</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
+<P><STRONG><a name="[ba]"></a>hal_gpio_input_read</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
+
+<P><STRONG><a name="[aa]"></a>hal_gpio_output_read</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_toggle
 </UL>
 
-<P><STRONG><a name="[a5]"></a>hal_gpio_bit_set</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
+<P><STRONG><a name="[a6]"></a>hal_gpio_output_write</STRONG> (Thumb, 20 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
 </UL>
 
-<P><STRONG><a name="[a6]"></a>hal_gpio_bit_reset</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
+<P><STRONG><a name="[a7]"></a>hal_gpio_bit_set</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
 </UL>
 
-<P><STRONG><a name="[a7]"></a>hal_gpio_bit_toggle</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_output_read
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
+<P><STRONG><a name="[a8]"></a>hal_gpio_bit_reset</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
 </UL>
 
-<P><STRONG><a name="[a9]"></a>hal_gpio_irq_set</STRONG> (Thumb, 576 bytes, Stack size 40 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_syscfg_mask
+<P><STRONG><a name="[a9]"></a>hal_gpio_bit_toggle</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_output_read
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;intercept_overwrite_register
 </UL>
 
-<P><STRONG><a name="[ba]"></a>hal_gpio_irq_status</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
-
-<P><STRONG><a name="[bb]"></a>hal_gpio_irq_clear</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
-
-<P><STRONG><a name="[bc]"></a>hal_pwr_reset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
-
-<P><STRONG><a name="[bd]"></a>hal_pwr_set_backup_domain</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, hal_pwr.o(.text), UNUSED)
-
-<P><STRONG><a name="[be]"></a>hal_pwr_set_backup_access</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
-
-<P><STRONG><a name="[bf]"></a>hal_pwr_set_wakeup_pin</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
-
-<P><STRONG><a name="[c0]"></a>hal_pwr_set_flash_powerdown</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
-
-<P><STRONG><a name="[99]"></a>hal_pwr_set_overdrive</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_pwr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
+<P><STRONG><a name="[ab]"></a>hal_gpio_irq_set</STRONG> (Thumb, 576 bytes, Stack size 40 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_syscfg_mask
 </UL>
 
-<P><STRONG><a name="[c1]"></a>hal_pwr_set_underdrive</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
+<P><STRONG><a name="[bb]"></a>hal_gpio_irq_status</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[96]"></a>hal_rcc_reset</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, hal_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
+<P><STRONG><a name="[bc]"></a>hal_gpio_irq_clear</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
+
+<P><STRONG><a name="[bd]"></a>hal_pwr_reset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
+
+<P><STRONG><a name="[be]"></a>hal_pwr_set_backup_domain</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, hal_pwr.o(.text), UNUSED)
+
+<P><STRONG><a name="[bf]"></a>hal_pwr_set_backup_access</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
+
+<P><STRONG><a name="[c0]"></a>hal_pwr_set_wakeup_pin</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
+
+<P><STRONG><a name="[c1]"></a>hal_pwr_set_flash_powerdown</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
+
+<P><STRONG><a name="[9b]"></a>hal_pwr_set_overdrive</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_pwr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
 </UL>
 
-<P><STRONG><a name="[ab]"></a>hal_rcc_set_peripheral</STRONG> (Thumb, 256 bytes, Stack size 12 bytes, hal_rcc.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<P><STRONG><a name="[c2]"></a>hal_pwr_set_underdrive</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_pwr.o(.text), UNUSED)
+
+<P><STRONG><a name="[98]"></a>hal_rcc_reset</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, hal_rcc.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
 </UL>
 
-<P><STRONG><a name="[97]"></a>hal_rcc_set_osc</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, hal_rcc.o(.text))
+<P><STRONG><a name="[ad]"></a>hal_rcc_set_peripheral</STRONG> (Thumb, 256 bytes, Stack size 12 bytes, hal_rcc.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+</UL>
+
+<P><STRONG><a name="[99]"></a>hal_rcc_set_osc</STRONG> (Thumb, 148 bytes, Stack size 16 bytes, hal_rcc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hal_rcc_set_osc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
 </UL>
 
-<P><STRONG><a name="[98]"></a>hal_rcc_setup_pll</STRONG> (Thumb, 314 bytes, Stack size 16 bytes, hal_rcc.o(.text))
+<P><STRONG><a name="[9a]"></a>hal_rcc_setup_pll</STRONG> (Thumb, 314 bytes, Stack size 16 bytes, hal_rcc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = hal_rcc_setup_pll
 </UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
 </UL>
 
-<P><STRONG><a name="[9a]"></a>hal_rcc_setup_clock</STRONG> (Thumb, 172 bytes, Stack size 8 bytes, hal_rcc.o(.text))
+<P><STRONG><a name="[9c]"></a>hal_rcc_setup_clock</STRONG> (Thumb, 172 bytes, Stack size 8 bytes, hal_rcc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = hal_rcc_setup_clock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
+<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_SystemClock
 </UL>
 
-<P><STRONG><a name="[85]"></a>strncmp</STRONG> (Thumb, 154 bytes, Stack size 20 bytes, strncmp.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<P><STRONG><a name="[88]"></a>strncmp</STRONG> (Thumb, 154 bytes, Stack size 20 bytes, strncmp.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = strncmp
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 </UL>
 
-<P><STRONG><a name="[86]"></a>strncpy</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, strncpy.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr
+<P><STRONG><a name="[89]"></a>strncpy</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, strncpy.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = strncpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr
+</UL>
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
 </UL>
 
-<P><STRONG><a name="[c2]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
+<P><STRONG><a name="[c3]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[c3]"></a>__aeabi_uidivmod</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
+<P><STRONG><a name="[c4]"></a>__aeabi_uidivmod</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[c4]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
+<P><STRONG><a name="[c5]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[9f]"></a>__aeabi_idivmod</STRONG> (Thumb, 326 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text))
+<P><STRONG><a name="[a1]"></a>__aeabi_idivmod</STRONG> (Thumb, 326 bytes, Stack size 8 bytes, aeabi_sdiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_idivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_pattern_mask
 </UL>
 
-<P><STRONG><a name="[af]"></a>_memset_w</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr_w
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
+<P><STRONG><a name="[b1]"></a>_memset_w</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr_w
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
 </UL>
 
-<P><STRONG><a name="[ae]"></a>_memset</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
+<P><STRONG><a name="[b0]"></a>_memset</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
-</UL>
-
-<P><STRONG><a name="[b0]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
+<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[ad]"></a>__rt_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<P><STRONG><a name="[b2]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
 </UL>
 
-<P><STRONG><a name="[c5]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-
-<P><STRONG><a name="[c6]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-
-<P><STRONG><a name="[b1]"></a>__rt_memclr_w</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
+<P><STRONG><a name="[af]"></a>__rt_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
 </UL>
 
-<P><STRONG><a name="[ac]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, hal_rcc.o(i.__ARM_common_switch8), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_set_peripheral
+<P><STRONG><a name="[c6]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+
+<P><STRONG><a name="[c7]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+
+<P><STRONG><a name="[b3]"></a>__rt_memclr_w</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset_w
+</UL>
+
+<P><STRONG><a name="[ae]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, hal_rcc.o(i.__ARM_common_switch8), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_set_peripheral
 </UL>
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[81]"></a>idle</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, hal_mocked.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_init
+<P><STRONG><a name="[6d]"></a>send_read_display_buffer_request</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, lcd_io.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = send_read_display_buffer_request &rArr; hal_spi_read_write &rArr; hal_mocked_spi_read_write &rArr; exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_spi_read_write
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_display_buffer
 </UL>
 
-<P><STRONG><a name="[83]"></a>print_ct_lcd</STRONG> (Thumb, 54 bytes, Stack size 20 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
+<P><STRONG><a name="[84]"></a>idle</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_init
 </UL>
 
-<P><STRONG><a name="[82]"></a>error</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ct_lcd
+<P><STRONG><a name="[86]"></a>print_ct_lcd</STRONG> (Thumb, 54 bytes, Stack size 20 bytes, hal_mocked.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = print_ct_lcd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
-</UL>
-
-<P><STRONG><a name="[8c]"></a>data_at</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exec_cmd
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;error
 </UL>
 
-<P><STRONG><a name="[8b]"></a>resp</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[85]"></a>error</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, hal_mocked.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = error &rArr; print_ct_lcd
+</UL>
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ct_lcd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[8a]"></a>data_len</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[8f]"></a>data_at</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[84]"></a>exec_cmd</STRONG> (Thumb, 160 bytes, Stack size 16 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ct_lcd
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[8e]"></a>resp</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[87]"></a>next</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[8d]"></a>data_len</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[89]"></a>data_append</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[87]"></a>exec_cmd</STRONG> (Thumb, 160 bytes, Stack size 16 bytes, hal_mocked.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = exec_cmd &rArr; strncpy
+</UL>
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncpy
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;print_ct_lcd
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[88]"></a>data_clear</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
+<P><STRONG><a name="[8a]"></a>next</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[8e]"></a>get_new_button_event</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, hal_mocked.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_sbuf_get_state
+<P><STRONG><a name="[8c]"></a>data_append</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, hal_mocked.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = data_append
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[9d]"></a>init_LCD</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, system_ctboard.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
+<P><STRONG><a name="[8b]"></a>data_clear</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_spi_read_write
 </UL>
 
-<P><STRONG><a name="[91]"></a>init_FMC_SRAM</STRONG> (Thumb, 266 bytes, Stack size 32 bytes, system_ctboard.o(.text))
+<P><STRONG><a name="[91]"></a>get_new_button_event</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, hal_mocked.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_mocked_sbuf_get_state
+</UL>
+
+<P><STRONG><a name="[9f]"></a>init_LCD</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, system_ctboard.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
+</UL>
+
+<P><STRONG><a name="[93]"></a>init_FMC_SRAM</STRONG> (Thumb, 266 bytes, Stack size 32 bytes, system_ctboard.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = init_FMC_SRAM &rArr; hal_gpio_init_alternate &rArr; hal_gpio_init_output &rArr; create_pattern_mask &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_alternate
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_fmc_init_sram
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_alternate
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_fmc_init_sram
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
-</UL>
-
-<P><STRONG><a name="[9c]"></a>init_FPU</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
 </UL>
 
-<P><STRONG><a name="[95]"></a>init_SystemClock</STRONG> (Thumb, 170 bytes, Stack size 16 bytes, system_ctboard.o(.text))
+<P><STRONG><a name="[9e]"></a>init_FPU</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_ctboard.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
+</UL>
+
+<P><STRONG><a name="[97]"></a>init_SystemClock</STRONG> (Thumb, 170 bytes, Stack size 16 bytes, system_ctboard.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = init_SystemClock &rArr; hal_rcc_setup_pll
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_setup_pll
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_setup_clock
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_set_osc
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_reset
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_pwr_set_overdrive
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_setup_pll
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_setup_clock
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_set_osc
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_rcc_reset
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_pwr_set_overdrive
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_enter_run
 </UL>
 
-<P><STRONG><a name="[9e]"></a>create_pattern_mask</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, hal_gpio.o(.text))
+<P><STRONG><a name="[a0]"></a>create_pattern_mask</STRONG> (Thumb, 92 bytes, Stack size 40 bytes, hal_gpio.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = create_pattern_mask &rArr; __aeabi_idivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_output
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_analog
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_input
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_alternate
-</UL>
-
-<P><STRONG><a name="[a1]"></a>intercept_overwrite_register</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, hal_gpio.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_toggle
-<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_reset
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_set
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_output_write
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_output
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_input
+<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_output
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_analog
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_input
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_alternate
 </UL>
 
-<P><STRONG><a name="[aa]"></a>get_syscfg_mask</STRONG> (Thumb, 106 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_irq_set
+<P><STRONG><a name="[a3]"></a>intercept_overwrite_register</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, hal_gpio.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_toggle
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_reset
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_bit_set
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_output_write
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_output
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_init_input
+</UL>
+
+<P><STRONG><a name="[ac]"></a>get_syscfg_mask</STRONG> (Thumb, 106 bytes, Stack size 0 bytes, hal_gpio.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hal_gpio_irq_set
 </UL>
 <P>
 <H3>

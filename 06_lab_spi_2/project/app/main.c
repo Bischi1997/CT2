@@ -55,10 +55,8 @@ int main(void)
 
     while (1) {
         /// STUDENTS: To be programmed
-				
-
-
-
+				nrOfChars = read_display_buffer(readBuffer);
+				CT_LED->BYTE.LED7_0 = readBuffer[nrOfChars-1];
         /// END: To be programmed
     }
 }
