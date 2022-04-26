@@ -1,0 +1,674 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Computer Technik 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="41cddb88-4660-431f-a4e1-726ae6115816" class="page sans"><header><h1 class="page-title">Computer Technik 2</h1></header><div class="page-body"><h1 id="61512290-5d71-436d-a012-a616962054fc" class="">Microcontroller</h1><p id="42fa2ddf-a349-45db-b9d8-22133a663e23" class="">CPU → Master</p><p id="75d236b7-dedb-4c54-9c8c-da68f22f8de4" class="">Memory und Peripherie → Slaves</p><h2 id="b375bdb1-7a4d-43f7-8352-6415a184e78d" class=""><details open=""><summary>Synchronous Bus Timing Options</summary></details></h2><div class="indented"><ul id="c6cf291d-0a8b-4c01-9c9f-b344bcf732c7" class="bulleted-list"><li style="list-style-type:disc">Master und Slaves benutzen eine gemeinsame Clock.</li></ul><ul id="25fca708-1611-44fb-adf9-bd99897fd4e6" class="bulleted-list"><li style="list-style-type:disc">Clock steuern den Bustransfer auf beiden Seiten.</li></ul><figure id="a22caded-251c-44da-88e1-65b2348dffdc" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled.png"><img style="width:324px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled.png"/></a></figure></div><h2 id="b0acea21-08e1-4c2d-a161-35d7d424c4e7" class=""><details open=""><summary>Asynchronous Bus Timing Options</summary></details></h2><div class="indented"><ul id="2f172792-c269-4541-85f4-3f078d258eb2" class="bulleted-list"><li style="list-style-type:disc">Slaves haben keinen Zugriff auf die Clock des Masters.</li></ul><ul id="07f59aef-b3f5-4f1a-92a8-8b3dc67ee440" class="bulleted-list"><li style="list-style-type:disc">Control signalisiert carry timing information um eine Synchronisation zu erlauben.</li></ul><figure id="ecd0db81-1066-4a71-88ac-14a636234def" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%201.png"><img style="width:324px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%201.png"/></a></figure></div><h2 id="a9ae1b9e-ed7a-48eb-bcab-5696dd4d4403" class="">Mehrere Devices benutzen die gleiche Data Line</h2><p id="23efb6b6-68a4-4584-8acb-883a69f64cfd" class="">Wenn ein Device eine logische 1 und ein anderes Device eine logische 0 sendet, dann führt dies zu einem Kurzschluss.</p><p id="b12c427f-e593-4933-a9c1-2a355c2986d1" class="">Aus diesem Grund definiert die CPU wer den Daten Bus zu einer gegebenen Zeit benutzen darf.</p><ul id="4e2af758-537e-4960-9e09-785c6b6bf1af" class="bulleted-list"><li style="list-style-type:disc">Write → CPU fährt den Bus → Alle Slaves sind vom Bus disconnected</li></ul><ul id="d9414774-46d8-4cf4-870d-f251d80d91ec" class="bulleted-list"><li style="list-style-type:disc">Read → CPU vom Bus disconnected → Einzelner Slave fährt den Bus mit Values auf einer gegeben Adresse, alle andere Slaves sind disconnected</li></ul><h2 id="9548ae85-b362-45ff-b1aa-7baab566b8d2" class=""><details open=""><summary>Buszugriffe (Schreiben)</summary></details></h2><div class="indented"><figure id="f57189c9-a0cc-40a6-8f43-75898434bdf7" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%202.png"><img style="width:720px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%202.png"/></a></figure><p id="6575df3a-0159-4623-a185-052777905646" class="">Hier sieht man dass <strong>geschrieben </strong>wird, weil <strong>NWE </strong>Values Schwankungen haben von 0 und 1.</p><p id="df9fe09c-c225-418a-8bb7-3bf86fa906b3" class="">Folgend Attribute:</p><ul id="e70206ab-acd6-45c4-8f97-acb96f89e20b" class="bulleted-list"><li style="list-style-type:disc">Adresse List 0x6100’ABC8</li></ul><ul id="9c566588-cdb9-4018-b647-f35f0a02ee12" class="bulleted-list"><li style="list-style-type:disc">Geschrieben wird die Value 0x5566’7788</li></ul></div><h2 id="054aff71-ba2b-40ec-9fb8-19d2eb0cfe7c" class=""><details open=""><summary>Buszugriffe (Lesen)</summary></details></h2><div class="indented"><figure id="dffe1ccf-4609-40f5-b095-77247a252cb9" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%203.png"><img style="width:510px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%203.png"/></a></figure><p id="174bc26a-9061-4930-9cc6-3222c28651d6" class="">Hier sieht man dass <strong>gelesen </strong>wird, weil <strong>NWE </strong>konstant ein Value 1 hat.</p><p id="4c23f4ab-c657-4f29-b231-b4eba87bca58" class="">Folgend Attribute:</p><ul id="405e1c3c-96f8-419c-8728-ca610d523af6" class="bulleted-list"><li style="list-style-type:disc">Adresse List 0x6100’ABC8</li></ul><ul id="744636d3-3380-4666-8b7c-d99aa0ea1c66" class="bulleted-list"><li style="list-style-type:disc">Gelesen wird die Value 0x1122’3344</li></ul></div><h1 id="15df833b-c6bd-4425-b99d-51a2415ea108" class="">General Purpose I/O (Input/Output)</h1><div id="f7dc26c7-b2ea-40d0-9e05-d7d42e04e2b5" class="column-list"><div id="3f201e4d-033c-4e66-a198-ebafb2e39623" style="width:50%" class="column"><figure id="7abb30e0-cd3c-4c0f-901f-63d883cb679b" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%204.png"><img style="width:316px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%204.png"/></a></figure></div><div id="3ca631d9-8468-4607-b7a3-30c42f9faf6b" style="width:50%" class="column"><figure id="4dd271dd-336b-468a-96c7-f8bd663c272c" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%205.png"><img style="width:583px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%205.png"/></a></figure></div></div><figure id="302775dd-3f04-4687-be79-a4d725cd60ed" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%206.png"><img style="width:864px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%206.png"/></a></figure><h2 id="dc2d5d58-88e5-40a8-acab-5a948e546d95" class=""><details open=""><summary>Mode register (GPIOx_MODER)</summary></details></h2><div class="indented"><p id="d4dcf58a-c175-4381-89d3-bfe226fb8abb" class="">Wenn Eingabe → Input (00)</p><p id="59d017b7-f87d-4926-b2ce-8e5f7823e737" class="">Wenn Ausgabe → General purpose output mode (01)</p><p id="a4ae7eb3-497a-4779-bc68-4cdbd4284b3a" class=""><strong>Address offset: 0x00</strong></p><figure id="ae60deda-4629-4441-982e-df3f1da9a4b7" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%207.png"><img style="width:934px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%207.png"/></a></figure></div><h2 id="fa1224eb-0b41-4a9f-a834-acde0d0dd7c7" class=""><details open=""><summary>Output type register (GPIOx_OTYPER)</summary></details></h2><div class="indented"><p id="7617c6d2-852a-48af-ad35-7a09a6d56c03" class="">Wenn konstant gleicher Value → Output open-drain</p><p id="6ce5c908-df1c-4fa9-a8f1-3321993557f4" class="">Wenn unterschiedliche Values → Output push-pull</p><p id="1e0c5f64-052d-473a-ac03-d341d6ce70e3" class=""><strong>Address offset: 0x04</strong></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8406d670-73c9-41e4-a5b8-02501ec86c7c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>FÜR EINGABE NICHT RELEVANT!</strong></div></figure><figure id="f777a5bd-c3e9-451f-b1cc-f0a182c7cb5c" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%208.png"><img style="width:926px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%208.png"/></a></figure></div><h2 id="c3ba44a8-08c0-4379-81f7-10f543bc8eb7" class=""><details open=""><summary>Pull-up/pull-down register (GPIOx_PUPDR)</summary></details></h2><div class="indented"><p id="68e7e992-3e1d-4622-921b-b40175b1384f" class="">Oft <strong>No pull-up, no pull-down</strong> weil einfach ein Value gesendet wird oder bloss ein Value erhalten wird.</p><p id="d2a91899-830d-4b89-86db-46490b5589a7" class=""><strong>Address offset: 0x0C</strong></p><figure id="beafb0cb-52ef-4e27-9bef-ce109c683bd0" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%209.png"><img style="width:936px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%209.png"/></a></figure></div><h2 id="86dee9dc-1ca0-4b0a-bb98-1c2f3b6c0446" class=""><details open=""><summary>Output speed register (GPIOx_OSPEEDR)</summary></details></h2><div class="indented"><p id="706c79be-8fee-466a-ab11-ac2ec1162589" class="">Wenn nichts definiert ist, dann <strong>Medium Speed.</strong></p><p id="f97f2999-b2ab-49d5-8cc0-4fb7b543cd31" class=""><strong>Address offset: 0x08</strong></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e2852142-6373-4176-a884-c11ec8b14d7e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>FÜR EINGABE NICHT RELEVANT!</strong></div></figure><figure id="e34cdb94-50fb-4800-9aa1-f4e2ce191674" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2010.png"><img style="width:921px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2010.png"/></a></figure></div><h2 id="0e359dde-0be7-44ee-9810-84083a52c09f" class=""><details open=""><summary>GPIO port bit set/reset register (GPIOx_BSRR)</summary></details></h2><div class="indented"><p id="caaf3a21-13bb-4b0b-93f0-083d6012cba9" class="">Wenn Port-Bits gecleart/gelöscht werden muss.</p><p id="4da9d6ee-93c3-48f5-a772-f4f3437e3cdd" class=""><strong>Address offset: 0x18</strong></p><figure id="bf72fcb8-f1ae-4001-b79e-7bcc7ae8d0e3" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2011.png"><img style="width:884px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2011.png"/></a></figure></div><h2 id="0cc0095f-c9f4-4ad7-b6c7-18abf1093461" class=""><details open=""><summary>GPIO port output data register (GPIOx_ODR)</summary></details></h2><div class="indented"><p id="41eec43f-e856-4edf-bef4-19f86c963894" class="">Liest den aktuellen Zustand des Outputs und gibt zurück. Kann auch geschrieben werden.</p><p id="494632d0-ec2c-4a0d-8a9c-9e13c880456b" class=""><strong>Address offset: 0x14</strong></p><figure id="3a085956-810f-4665-a9bf-7c701be082a0" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2012.png"><img style="width:917px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2012.png"/></a></figure></div><h2 id="076245b0-eebb-4ab4-9a7e-36e314d73c42" class=""><details open=""><summary>GPIO port input data register (GPIOx_IDR)</summary></details></h2><div class="indented"><p id="4d495c4b-7ece-4f32-8684-b8eb77af9228" class="">Liest den aktuellen Zustand des Inputs und gibt zurück.</p><p id="70e00f76-0ffc-495d-b65a-03959d35a825" class=""><strong>Address offset: 0x10</strong></p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ddfe221-e50e-4c59-8961-6b1b59fbe3e4"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Gelesener Wert mit 0x1 maskieren.</div></figure><figure id="f8b27723-f5bc-4b17-803a-b1d1f9e2a11c" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2013.png"><img style="width:951px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2013.png"/></a></figure></div><h1 id="514febb5-e24a-4161-811d-996b9a0fdfa6" class="">Serial Data Transfer</h1><h2 id="7c964bb2-ec68-4347-aab8-7349e3f9592d" class="">Maximale Taktabweichung berechnen</h2><ol type="1" id="5917b726-b6b0-4e2e-82a8-f1f2b38ec7f0" class="numbered-list" start="1"><li>Fallende Flanke Start-Bit bis Mitte letzter Bit (0-x Bits): <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1.5</mn><mi>B</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">x+1.5 Bits</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1.5</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span></span></span></span></span><span>﻿</span></span></li></ol><ol type="1" id="09c7b905-520b-42f1-9d81-ae4bf16cbb85" class="numbered-list" start="2"><li>Maximale Abweichung für die richtige Erkennung letzter Bit: <strong>0.5 Bits</strong></li></ol><ol type="1" id="7d3a4f38-d3cf-4b1b-9f2a-a01f08272c5e" class="numbered-list" start="3"><li>Taktabweichung: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>100</mn><mi mathvariant="normal">%</mi><mo>∗</mo><mn>0.5</mn><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>x</mi><mo>+</mo><mn>1.5</mn><mi>B</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo stretchy="false">)</mo><mo>=</mo><mtext> </mtext><mi>y</mi><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">100\%*0.5/(x+1.5 Bits)=~y\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80556em;vertical-align:-0.05556em;"></span><span class="mord">100%</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.5/</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1.5</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord mathnormal">i</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace nobreak"> </span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord">%</span></span></span></span></span><span>﻿</span></span></li></ol><h2 id="250d4e94-c874-4abd-b390-18a530d4688b" class="">Synchronisation zwischen Sender und Empfänger</h2><p id="1465e8f4-564e-4917-be44-8788177eeaa6" class="">Durch die Benutzung der Start, Stopp und IDLE bits, kann man Sender und Empfänger synchronisieren.</p><p id="1454fe3f-757c-4a2d-829d-6093939defc1" class="">Erstes Bits (Start) = 0 Fallende Flanke, danach Daten</p><p id="fa4eb83e-b916-4627-97ac-a33d33ac13ca" class="">Letztes Bit (Stopp, IDLE) = 1 Danach entweder eine Fallende Flanke wieder (Start Bit) um zu sagen, jetzt kommen weitere Daten. Oder konstant eine 1 als Value um zu signalisieren bleib IDLE, es momentan kommen keine weitere Daten.</p><h2 id="aabaa179-5b49-439a-9a1a-04345726248c" class="">Nutzdaten-Bytes berechnen</h2><p id="31818fae-adce-4acc-894f-45c4ec2b2ecc" class="">Gegeben:</p><ul id="60909838-e1b5-4243-9758-80fe49bdf31b" class="bulleted-list"><li style="list-style-type:disc">9600 baud (9600 bit/Sek.)</li></ul><ul id="c88ae6fd-1218-4919-9fde-bf80025e4d18" class="bulleted-list"><li style="list-style-type:disc">8 Datenbits, 2 Stoppbits, 1 Paritybit</li></ul><p id="8ba681ec-8ea6-4884-8588-cccdbce5cda4" class="">1 (Startbit) + 8 (Datenbits) + 2 (Stoppbits) + 1 (Paritybit) = 12 Bits</p><p id="9e6418d7-5a3b-4fe0-a7d3-6f6d435531f8" class="">9600/12 = 800 Bytes/Sek.</p><h1 id="df5cf67e-f615-4880-8282-2421fa1b080d" class="">Timers / Counters</h1><figure id="98ed297b-142c-4dc8-9af0-af46a9ec0ffe" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2014.png"><img style="width:593px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2014.png"/></a></figure><h2 id="f4b6b47d-6094-427a-b7cc-6bcaeba5c909" class="">Capture</h2><blockquote id="306f7051-ba10-4677-96a9-9dd85bd644c3" class="">Bei einem Event wird der Inhalt des Counter Registers in das Capture / Compare
+Register kopiert. Der Counter läuft weiter.</blockquote><h2 id="252f6296-25ec-43a6-a8b0-8c0042f6dc20" class="">Compare</h2><blockquote id="5e3d6177-f0fc-4a75-8d97-f08185f9d39e" class="">Sobald der Counter den Wert des Capture / Compare Register erreicht hat, wird ein
+Event oder ein Interrupt ausgelöst. Der Counter läuft weiter.</blockquote><h2 id="19e155d9-2e09-44d2-902d-2114bf7fdd3b" class=""><details open=""><summary>Timing Diagram</summary></details></h2><div class="indented"><figure id="2582c857-0575-41ee-9920-83c3e812b9dd" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2015.png"><img style="width:979px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2015.png"/></a></figure></div><h2 id="fe8accfd-ea96-47fc-bb8a-dc566f5d3300" class=""><details open=""><summary>TIMx slave mode control register (TIMx_SMCR)</summary></details></h2><div class="indented"><p id="33653935-5a9d-4018-b17b-ee80b37d2905" class="">Wenn die interne Clock CK_INT benutzt werden soll, dann soll man folgende Register konfigurieren.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bfa7d193-bdbf-4d1d-9284-c63046d94bde"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">TIM3_SMCR &amp;= 0xFFF8;      // TIM3_SMCR  [2:0]  0b000. 0xFFF8 → 1111’1111’1111’1000</div></figure><figure id="bd176aac-4d9a-4b51-b036-3cbdb9282986" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2016.png"><img style="width:921px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2016.png"/></a></figure></div><h2 id="cd310e43-3cbc-4fad-bbbb-291280409ce9" class=""><details open=""><summary>TIMx Control Register 1 (TIMx_CR1)</summary></details></h2><div class="indented"><p id="f78e5de9-daea-4a4a-8b2c-da23f9538ae4" class="">Wenn konfiguriert werden muss ob der Timer bis zu einem Wert zählt und dann überläuft (Upcounter) oder wenn ein Wert als Startwert für den Timer benutzt werden muss.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ece04c5-b900-43d2-89e3-de71f291eb05"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">TIM3_CR1 &amp;= 0xFF8F;      // TIM3_CR1   [4]   0b0. 0xFF8F → 1111’1111’1000’1111</div></figure><figure id="f5a135e9-1166-4a8a-acaa-034aed0fb804" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2017.png"><img style="width:658px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2017.png"/></a></figure></div><h2 id="00df9028-a8e8-4983-a4b7-bc6ccc31102d" class=""><details open=""><summary>TIMx prescaler (TIMx_PSC)</summary></details></h2><div class="indented"><p id="30a364f4-e9c2-4a62-a77d-bb979eee5e0d" class="">Wenn der Prescaler konfiguriert und nur jeder n-te Wert gezählt werden muss.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0a91237f-f1ec-4f49-9600-c88db8e77f4f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">TIM3_PSC = 0x20CF;      // (8400-1) wegen 0 bis 8399 = 8400. Bei einer internen CK_CNT von 84MHz = 84’000’000 / 8400 = 10kHz → 0.1ms</div></figure><figure id="ff5ad58b-f546-47f0-b55b-8dcc73c0ad1b" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2018.png"><img style="width:592px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2018.png"/></a></figure></div><h2 id="c32ead9a-45c0-43e7-9dd2-37921ff94ac9" class=""><details open=""><summary>TIMx auto-reload register (TIMx_ARR)</summary></details></h2><div class="indented"><p id="dae0438a-b5b1-497b-b08a-5b1e3c8cc741" class="">Wenn der Auto-Reload Register so konfiguriert werden muss, dass ab einem bestimmten Wert ein Timerüberlauf stattfindet.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="da9d005b-9120-43eb-a3e2-5d41d34d93b7"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">TIM3_ARR = 0x07CF;      // (2000-1) wegen 0 bis 1999 = 2000. Weil das Ziel war einen Timeüberlauf bei 200ms zu haben, wurde TIM3_PSC mit 8400 definiert. Dies führt zu einem Tick von 10kHz (0.1ms) → 200ms/0.1ms = 2000 ARR</div></figure><figure id="2910aa4f-c853-46ed-96ab-8b335238762f" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2018.png"><img style="width:592px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2018.png"/></a></figure></div><h2 id="23407656-67cd-4e03-9fa3-5e9a5a487db0" class="">Wie findet man aus, welchen Prescaler oder ARR festgesetzt werden muss?</h2><h3 id="a683679a-3ef9-4eda-ad85-7c7029ff0d7b" class="">Aufgabe1</h3><p id="5bb43281-15ad-48e0-8404-a81ce3bedf2d" class="">Gegeben:</p><ul id="35346c23-08c5-4cfd-a79a-7ca36802100d" class="bulleted-list"><li style="list-style-type:disc">16-bit Counter</li></ul><ul id="955667c9-9463-4e86-a8a2-59dd764a7150" class="bulleted-list"><li style="list-style-type:disc">Source 1 MHz (Internal clocks)</li></ul><ul id="c69a56db-7c7b-4e2a-a6c9-ea65abd3368c" class="bulleted-list"><li style="list-style-type:disc">Prescaler kann nur zu folgenden Werten gesetzt werden n = 1, 2, 4, 8, 16</li></ul><p id="bedf3587-3f49-4e42-9f08-0658271ee870" class="">Gesucht:</p><ul id="268f8352-b5b6-47f2-a242-ce6d4a7ad9cd" class="bulleted-list"><li style="list-style-type:disc">Output 20 Hz → 50ms</li></ul><ul id="19b76406-b99e-4623-b1be-7b4df5403d8f" class="toggle"><li><details open=""><summary>Folgende Schritte müssen befolgt werden um an die Richtige lösung zu kommen:</summary><ul id="5b16ab94-5ee8-4bd0-8769-f00a15ca377a" class="toggle"><li><details open=""><summary>Was ist das Verhältnis zwischen dem Input und dem Output?</summary><p id="ed7cd9c2-a493-4bd0-b843-564d3d2f128e" class="">1 MHz / 20 Hz → <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><mn>20</mn></mfrac><mo>=</mo><mn>5</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">\frac {1&#x27;000&#x27;000} {20} = 50&#x27;000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.31848em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.97348em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">00</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">000</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span></p></details></li></ul><ul id="9a112ef9-d1b8-4baa-94c7-380c19ad71a0" class="toggle"><li><details open=""><summary>Hat das berechnete Verhältnis im 16-Bit System platz?</summary><p id="cdf15aac-91b0-4e4e-a79d-842698a151bc" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>6</mn><msup><mn>5</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>536</mn></mrow><annotation encoding="application/x-tex">2^{16} = 65&#x27;536</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">536</span></span></span></span></span><span>﻿</span></span></p><p id="9f31f585-05a4-4e23-89c5-45f9a19841ae" class="">In diesem Fall hat <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">50&#x27;000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span> Platz innerhalb des 16-bit System</p></details></li></ul><ul id="00534eb7-f812-4527-a177-83731077e8a6" class="toggle"><li><details open=""><summary>Anhand des Resultats ob das Verhältnis innerhalb des 16-bit System Platz hat, wird entschieden ob einen Prescaler definiert werden muss oder nicht (dann 1)</summary><p id="62b46149-8996-4f64-8d73-ecd6cdf10211" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">50&#x27;000 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span> hat Platz innerhalb <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>6</mn><msup><mn>5</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>536</mn></mrow><annotation encoding="application/x-tex">2^{16} = 65&#x27;536</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">536</span></span></span></span></span><span>﻿</span></span>.</p><p id="5ac532ae-c855-46b0-b8ef-979f0ff750f9" class="">In diesem Fall ist der Prescaler = 1</p></details></li></ul><ul id="2a223b61-c5a5-46ac-b6fc-538aa2fa0508" class="toggle"><li><details open=""><summary>ARR festsetzen</summary><p id="de20ff06-6926-40dc-b04b-9dd3af1239ca" class="">Weil der Prescaler = 1 ist, kann der ARR auf den Wert des Verhältnis festgesetzt werden.</p></details></li></ul></details></li></ul><h3 id="3e2b6759-1a32-4ce6-baba-b71da411728c" class="">Aufgabe2</h3><p id="98db3fd0-2298-49bd-95a2-c1b072cfe320" class="">Gegeben:</p><ul id="2412eeb2-f349-476f-85ee-e132ae72997a" class="bulleted-list"><li style="list-style-type:disc">16-bit Counter</li></ul><ul id="1a2e56f2-b063-4d99-b540-70aaacb5716b" class="bulleted-list"><li style="list-style-type:disc">Source 1 MHz (Internal clocks)</li></ul><p id="55440f12-1c1b-4bc5-8750-037dc28d7229" class="">Gesucht:</p><ul id="5c5085af-2fdc-4ac8-81c0-ac5823cac3ff" class="bulleted-list"><li style="list-style-type:disc">Output 1 Hz → 1s</li></ul><ul id="94dc3427-2dac-489f-8b35-2ef185432b90" class="toggle"><li><details open=""><summary>Folgende Schritte müssen befolgt werden um an die Richtige lösung zu kommen:</summary><ul id="5d767925-9bf9-4a6e-9aca-803d0b3059c5" class="toggle"><li><details open=""><summary>Was ist das Verhältnis zwischen dem Input und dem Output?</summary><p id="130b959f-df94-45a8-bfc2-c46bbe42f117" class="">1 MHz / 1 Hz → <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><mn>1</mn></mfrac><mo>=</mo><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">\frac {1&#x27;000&#x27;000} {1} = 1&#x27;000&#x27;000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.31848em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.97348em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">00</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">000</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">00</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span></p></details></li></ul><ul id="5402875c-987f-4866-9dc3-65343263f277" class="toggle"><li><details open=""><summary>Hat das berechnete Verhältnis im 16-Bit System platz?</summary><p id="7cec86db-9e1d-41aa-b5a9-187a24557969" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>6</mn><msup><mn>5</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>536</mn></mrow><annotation encoding="application/x-tex">2^{16} = 65&#x27;536</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">536</span></span></span></span></span><span>﻿</span></span></p><p id="296252bf-ab2e-48af-a403-2a768953cef9" class="">In diesem Fall hat <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">1&#x27;000&#x27;000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">00</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span> keinen Platz innerhalb des 16-bit System</p></details></li></ul><ul id="c1ab3dd0-c4db-4d10-a3cd-2f2bfa2eddc9" class="toggle"><li><details open=""><summary>Anhand des Resultats ob das Verhältnis innerhalb des 16-bit System Platz hat, wird entschieden ob einen Prescaler definiert werden muss oder nicht (dann 1)</summary><p id="54bfc901-70a0-4e2a-891a-30dd5633e665" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">1&#x27;000&#x27;000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">00</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span> hat keinen Platz innerhalb <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup><mo>=</mo><mn>6</mn><msup><mn>5</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>536</mn></mrow><annotation encoding="application/x-tex">2^{16} = 65&#x27;536</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">536</span></span></span></span></span><span>﻿</span></span>.</p><p id="eaa4319b-a6b2-4680-bd85-f40be971ac6a" class="">Aus diesem Grund muss folgende Berechnung gemacht werden:</p><p id="48b88662-3e5d-4e79-949c-7163e6ec77cc" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><msup><mn>2</mn><mn>16</mn></msup></mfrac></mrow><annotation encoding="application/x-tex">\frac {1&#x27;000&#x27;000} {2^{16}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.31848em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.97348em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">00</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">000</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><span>﻿</span></span>→ <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15.25878906</mn></mrow><annotation encoding="application/x-tex">15.25878906</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">15.25878906</span></span></span></span></span><span>﻿</span></span></p><p id="9a8016bb-c57d-4cd2-b130-c958f93e1542" class="">Jetzt nehmen wir die nächst beste Zahl 16 von der List der möglichen Prescalers.</p></details></li></ul><ul id="a74a6b07-2dac-4187-8dc9-9c80b1c59da3" class="toggle"><li><details open=""><summary>ARR festsetzen</summary><p id="7e510872-1398-41f3-9212-2152b02b8954" class="">Weil der Prescaler das mal keine 1 ist, müssen wir die 16 nehmen und mit der Source von 1MHz rechnen.</p><p id="a524f319-3251-4436-a071-b90a1785da0d" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><msup><mn>1</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><mn>16</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac {1&#x27;000&#x27;000} {16}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.31848em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.97348em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">16</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">00</span><span class="mord mtight"><span class="mord mtight">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mtight">000</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><span>﻿</span></span> → <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><msup><mn>2</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>500</mn></mrow><annotation encoding="application/x-tex">62&#x27;500</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">500</span></span></span></span></span><span>﻿</span></span></p><p id="496aae70-7829-44cd-829c-7675aca9a6c9" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>6</mn><msup><mn>2</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>500</mn></mrow><annotation encoding="application/x-tex">62&#x27;500</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">500</span></span></span></span></span><span>﻿</span></span> ist der ARR.</p><p id="6dc23ee5-1594-473b-81ae-fb38f9074dc8" class="">
+</p></details></li></ul></details></li></ul><h3 id="6ba21be9-2bfc-43d7-ba7e-71bbe10e52f0" class="">Aufgabe3</h3><p id="f27e5684-38e4-4e2a-84d6-a00156394ea1" class="">Gegeben:</p><ul id="d5ab770a-bcde-4672-9d1c-33fa37e00df5" class="bulleted-list"><li style="list-style-type:disc">Source 84 MHz = 84’000’000 (Internal clocks)</li></ul><p id="14e2aab6-11d5-4c9f-a0af-6e6baae9f5c6" class="">Gesucht:</p><ul id="93d63fd2-b0a0-4745-b0b3-c59f319ae52a" class="bulleted-list"><li style="list-style-type:disc">Timerüberlauf alle 200ms</li></ul><ul id="7923685d-b1a5-4bfc-9033-dc881666ded1" class="toggle"><li><details open=""><summary>Folgende Schritte müssen befolgt werden um an die Richtige lösung zu kommen:</summary><ul id="98f76938-caf7-4882-824c-b0d75400a247" class="toggle"><li><details open=""><summary>PSC definieren</summary><p id="a9bf8b0b-7d54-46e2-8fa5-44630f978352" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>84</mn><mi>M</mi><mi>H</mi><mi>z</mi><mi mathvariant="normal">/</mi><mi>x</mi><mo>=</mo><mi>y</mi><mi>k</mi><mi>H</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">84MHz/x=ykHz</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">84</span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span><span class="mord">/</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.04398em;">Hz</span></span></span></span></span><span>﻿</span></span></p><p id="1b578cdb-0418-4d86-82d9-b4931094fb62" class="">Für x kann man eine beliebig grosse Zahl nehmen. Es ist anzuraten eine Zahl zu nehmen welche das Value von 84’000’000 so klein macht wie nur möglich.</p><p id="27cd8dfd-a141-4a03-8ebe-37e78466e88e" class="">In unserem Fall haben wir x = 8400 Hz = PSC genommen.</p><p id="b91b4a53-0677-449a-9f13-a80ac4368db6" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><msup><mn>4</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>00</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn><mi mathvariant="normal">/</mi><mn>8400</mn><mo>=</mo><mn>1</mn><msup><mn>0</mn><mo mathvariant="normal" lspace="0em" rspace="0em">′</mo></msup><mn>000</mn></mrow><annotation encoding="application/x-tex">84&#x27;000&#x27;000/8400=10&#x27;000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord">8</span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">00</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000/8400</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord">000</span></span></span></span></span><span>﻿</span></span>Hz → 10kHz (0.1ms)</p></details></li></ul><ul id="377fb0f2-26ab-4aa0-8123-23525fb88f97" class="toggle"><li><details open=""><summary>ARR definieren</summary><p id="b382a896-c036-4fae-b11d-2e7ebd736a92" class="">Da wir einen Timerüberlauf von 200ms suchen, müssen wir folgende Rechnung anwenden: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn><mi>m</mi><mi>s</mi><mi mathvariant="normal">/</mi><mn>0.1</mn><mi>m</mi><mi>s</mi><mo>=</mo><mn>2000</mn></mrow><annotation encoding="application/x-tex">200ms/0.1ms=2000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">200</span><span class="mord mathnormal">m</span><span class="mord mathnormal">s</span><span class="mord">/0.1</span><span class="mord mathnormal">m</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2000</span></span></span></span></span><span>﻿</span></span> → ARR</p></details></li></ul><figure id="3e000e51-f0a0-4327-9278-40c9865648f9" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2019.png"><img style="width:780px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2019.png"/></a></figure></details></li></ul><p id="e3b2d3bc-4750-4e27-b22e-30bfd0b39bc2" class="">
+</p><h1 id="138cb6ff-3a44-4fdd-ac63-eaf332442712" class="">ADC/DAC</h1><h2 id="a06f7ab9-e155-4ae0-8d28-a3a70a3d9e0f" class="">ADC (Analog to Digital Converter)</h2><p id="b32466bf-9d9d-42d6-bd8d-3de93eef68ae" class="">Konvertiert input Signal (Voltage) zu digitalen values (N-bit).</p><figure id="4f3c0b32-9905-4714-a931-796f203480ca" class="image"><a href="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2020.png"><img style="width:1376px" src="Computer%20Technik%202%20a22caded251c44da88e165b2348dffdc/Untitled%2020.png"/></a></figure><h3 id="7951a744-b4e9-4457-af73-a51973c8242c" class="">Successive Approximation Register (SAR)</h3><p id="9ad2c7e6-2720-4b39-ba6a-cfab3e6da3d2" class="">Annäherung zu einem Bitmuster durch Binary Search.</p><h3 id="3d8877fc-c322-4e95-99c0-f65de17317eb" class="">Full scale range (FSR)</h3><p id="9e22fa92-6906-4a0a-b0df-f0cdc43ed4bf" class="">Dort ist der höchste Bit-Wert. Von wo bis wo kann ein Bit gesetzt werden bis es zu einer Störung kommt.</p><p id="e9aadf58-557b-46cd-8042-c9d30fb6b37f" class=""><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>F</mi><mi>S</mi><mi>R</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V_{FSR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">FSR</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> ist ein LSB kleiner als <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi><mi>F</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V_{REF}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">REF</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></p><ul id="78cbcd02-d858-49c5-9158-caf970cb6514" class="toggle"><li><details open=""><summary>FSR Herausfinden</summary><ul id="edfa7a06-4b6a-45d0-bd83-f0891c621b99" class="bulleted-list"><li style="list-style-type:disc">1 LSB = <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi><mi>F</mi></mrow></msub><mi mathvariant="normal">/</mi><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">V_{REF}/2^{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">REF</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span></li></ul><p id="4718841f-6066-4e3c-91df-959b27a24bdf" class="">Zum Beispiel: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi><mi>F</mi></mrow></msub><mo>=</mo><mn>8</mn><mi>V</mi><mo separator="true">,</mo><mi>N</mi><mo>=</mo><mn>3</mn><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">V_{REF} = 8V, N = 3bits</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">REF</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">8</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord mathnormal">bi</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span></span></span></span></span><span>﻿</span></span> → 1 LSB = <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mi>V</mi><mi mathvariant="normal">/</mi><msup><mn>2</mn><mn>3</mn></msup><mo>=</mo><mn>1</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">8V / 2^{3} = 1V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord">8</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord">/</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span><span>﻿</span></span></p><ul id="80965b3e-a01e-4c82-9005-fbe724dc0b98" class="bulleted-list"><li style="list-style-type:disc">FSR von 0V bis 7V (weil <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>R</mi><mi>E</mi><mi>F</mi></mrow></msub><mo>−</mo><mi>L</mi><mi>S</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">V_{REF}-LSB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">REF</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal" style="margin-right:0.05017em;">SB</span></span></span></span></span><span>﻿</span></span> → <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn><mi>V</mi><mo>−</mo><mn>1</mn><mi>V</mi><mo>=</mo><mn>7</mn><mi>V</mi></mrow><annotation encoding="application/x-tex">8V - 1V = 7 V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">7</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span><span>﻿</span></span>)</li></ul></details></li></ul><h3 id="a051df3c-75f3-4473-ac89-91568b902016" class="">DAC (Digital to Analog Converter)</h3><p id="763e2b57-578c-4aef-9774-c5be09cad8a4" class="">Konvertiert digitalen input value (N-bit) zu output Signal (Analog Voltage).</p><p id="a3a73600-39f3-4be2-b340-039fb8831149" class="">
+</p></div></article></body></html>
