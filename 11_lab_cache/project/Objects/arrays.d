@@ -1,0 +1,16 @@
+.\objects\arrays.o: app\arrays.c
+.\objects\arrays.o: app\arrays.h
+.\objects\arrays.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\arrays.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\arrays.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\arrays.o: app\simulation.h
+.\objects\arrays.o: C:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include\hal_ct_seg7.h
+.\objects\arrays.o: C:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\reg_ctboard.h
+.\objects\arrays.o: C:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include\hal_ct_lcd.h
+.\objects\arrays.o: C:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include\hal_timer.h
+.\objects\arrays.o: C:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\Device\Include\reg_stm32f4xx.h
+.\objects\arrays.o: C:\Users\rafae\AppData\Local\Arm\Packs\InES\CTBoard14_DFP\4.0.2\HAL\Include\hal_common.h
+.\objects\arrays.o: app\arrays.h
+.\objects\arrays.o: app\cache.h
+.\objects\arrays.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\arrays.o: app\config.h
